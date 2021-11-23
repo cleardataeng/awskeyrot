@@ -1,0 +1,13 @@
+[Unit]
+Description=AWS IAM user key rotation timer (profile %I)
+Wants=network-online.target
+After=network-online.target
+
+[Timer]
+OnCalendar=weekly
+Persistent=true
+RandomizedDelaySec=4hours
+Unit=awskeyrot@%i.service
+
+[Install]
+WantedBy=timers.target

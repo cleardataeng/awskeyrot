@@ -1,0 +1,10 @@
+[Unit]
+Description=AWS IAM user key rotation (profile %I)
+
+[Service]
+Type=simple
+Environment="AWS_PROFILE=%I"
+ExecStart=awskeyrot.py
+
+[Install]
+WantedBy=network-online.target
